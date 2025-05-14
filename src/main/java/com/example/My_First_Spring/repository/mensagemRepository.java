@@ -7,5 +7,4 @@ public class mensagemRepository {
     public String obterMensagem() {
         return "Olá do repositorio";
     }
-
 }

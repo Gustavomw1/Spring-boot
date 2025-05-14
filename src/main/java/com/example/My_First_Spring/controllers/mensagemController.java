@@ -9,6 +9,7 @@ import com.example.My_First_Spring.service.mensagemService;
 @RestController
 @RequestMapping("/api")
 public class mensagemController {
+
     private final mensagemService mensagemService;
 
     public mensagemController(mensagemService mensagemService) {

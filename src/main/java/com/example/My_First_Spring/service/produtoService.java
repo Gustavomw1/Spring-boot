@@ -3,9 +3,12 @@ package com.example.My_First_Spring.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+
 import com.example.My_First_Spring.model.produto;
 import com.example.My_First_Spring.repository.produtoRepository;
 
+@Service
 public class produtoService {
 
     private final produtoRepository produtoRepository;

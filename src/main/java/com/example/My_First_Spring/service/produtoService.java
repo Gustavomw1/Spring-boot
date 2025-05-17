@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.example.My_First_Spring.exceptions.recursosNaoEncontrados;
 import com.example.My_First_Spring.model.produto;
 import com.example.My_First_Spring.repository.produtoRepository;
 
@@ -21,8 +22,9 @@ public class produtoService {
         return produtoRepository.findAll();
     }
 
-    public Optional<produto> buscarPorId(Long id) {
-        return produtoRepository.findById(id);
+    public produto buscarPorId(Long id) {
+        return produtoRepository.findById(id)
+                .orElseThrow(() -> new recursosNaoEncontrados("Produto com ID " + id + " Não encontrado."));
     }
 
     public produto salvarProduto(produto produto) {
@@ -30,6 +32,10 @@ public class produtoService {
     }
 
     public void deletarProduto(Long id) {
+
+        if (!produtoRepository.existsById(id)) {
+            throw new recursosNaoEncontrados("Produto com ID " + id + " Não encontrado.");
+        }
         produtoRepository.deleteById(id);
     }
 }

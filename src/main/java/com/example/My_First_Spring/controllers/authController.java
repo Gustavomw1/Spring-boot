@@ -1,6 +1,5 @@
 package com.example.My_First_Spring.controllers;
 
-import java.lang.classfile.ClassFile.Option;
 import java.util.Map;
 import java.util.Optional;
 
@@ -33,7 +32,8 @@ public class authController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Map<String, String> request) {
         Optional<usuario> usuario = usuarioService.buscarPorUsername(request.get("username"));
-        if (usuario.isPresent() && usuario.get().getPassword().equals(request.get("password"))) {
+        if (usuario.isPresent()
+                && usuario.get().getPassword().equals(request.get("password"))) {
             String token = jwtUtil.generateToken(usuario.get().getUsername());
             return ResponseEntity.ok(Map.of("token", token));
         }

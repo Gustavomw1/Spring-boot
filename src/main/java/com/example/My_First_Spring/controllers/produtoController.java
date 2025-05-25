@@ -14,8 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.My_First_Spring.model.produto;
 import com.example.My_First_Spring.service.produtoService;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 @RestController
 @RequestMapping("/api/produtos")
+@CrossOrigin(origins = "http://localhost:8080/api/produtos")
 public class produtoController {
 
     private final produtoService produtoService;

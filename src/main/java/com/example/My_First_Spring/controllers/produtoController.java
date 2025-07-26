@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RestController
 @RequestMapping("/api/produtos")
-@CrossOrigin(origins = "http://localhost:8080/api/produtos")
 public class produtoController {
 
     private final produtoService produtoService;
